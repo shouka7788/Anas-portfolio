@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Portfolio</title>
+<title>Anas Elhaddad | English Teacher</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -14,37 +14,8 @@ font-family:'Poppins',sans-serif;
 background:#0f172a;
 color:white;
 overflow-x:hidden;
+perspective:1000px;
 }
-
-/* PARTICLES BACKGROUND */
-#particles{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-background:radial-gradient(circle at 20% 20%, #1e293b, #0f172a);
-}
-
-/* NAV */
-nav{
-position:fixed;
-width:100%;
-top:0;
-background:rgba(15,23,42,0.7);
-backdrop-filter:blur(10px);
-padding:15px;
-text-align:center;
-z-index:1000;
-}
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-transition:0.3s;
-}
-nav a:hover{color:#38bdf8;}
 
 /* HEADER */
 header{
@@ -55,9 +26,17 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding-top:80px;
+
+background:
+linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)),
+url('header.jpg');
+
+background-size:contain;
+background-position:center;
+background-repeat:no-repeat;
 }
 
-/* GLOW EFFECT */
+/* GLOW */
 .glow{
 position:absolute;
 width:400px;
@@ -73,8 +52,8 @@ z-index:-1;
 
 /* PROFILE */
 .profile-img{
-width:140px;
-height:140px;
+width:150px;
+height:150px;
 border-radius:50%;
 object-fit:cover;
 border:4px solid #38bdf8;
@@ -89,6 +68,7 @@ background:linear-gradient(90deg,#38bdf8,#818cf8);
 -webkit-background-clip:text;
 color:transparent;
 }
+
 #typing{
 font-size:20px;
 margin-top:10px;
@@ -114,22 +94,41 @@ padding:80px 20px;
 max-width:900px;
 margin:auto;
 }
+
+h2{
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+/* 3D CARD */
 .card{
 background:#1e293b;
 padding:20px;
-margin:15px 0;
+margin:20px 0;
 border-radius:15px;
-transition:0.3s;
+transform-style:preserve-3d;
+transition:0.4s;
 }
 .card:hover{
-transform:translateY(-8px);
+transform:rotateY(10deg) rotateX(5deg) scale(1.03);
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* FADE ANIMATION */
+/* SKILLS */
+.skills span{
+display:inline-block;
+background:#334155;
+padding:8px 15px;
+margin:5px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* ANIMATION */
 .hidden{
 opacity:0;
-transform:translateY(30px);
-transition:0.8s;
+transform:translateY(40px);
+transition:1s;
 }
 .show{
 opacity:1;
@@ -140,13 +139,7 @@ transform:translateY(0);
 
 <body>
 
-<div id="particles"></div>
 <div class="glow"></div>
-
-<nav>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
 
 <header>
 <img src="profile.jpg" class="profile-img">
@@ -155,23 +148,89 @@ transform:translateY(0);
 <button class="btn">Contact Me</button>
 </header>
 
-<section id="about" class="hidden">
+<!-- ABOUT -->
+<section class="hidden">
 <h2>About Me</h2>
 <div class="card">
-Passionate English teacher creating engaging and modern learning experiences.
+I am a passionate English Teacher with classroom experience in primary and middle school education. I specialize in designing engaging lessons, incorporating technology, and fostering a fun and supportive learning environment. I enjoy helping students grow in confidence and language fluency.
 </div>
 </section>
 
-<section id="contact" class="hidden">
-<h2>Contact</h2>
+<!-- EXPERIENCE -->
+<section class="hidden">
+<h2>Experience</h2>
+
 <div class="card">
-<p>Email: example@email.com</p>
+<strong>English Teacher (2023 – Present)</strong><br>
+Anahda Annex I – Tangier, Morocco
 </div>
+
+<div class="card">
+<strong>English Teacher (2023 – 2026)</strong><br>
+Anahda Private School – Tangier, Morocco
+<br><br>
+• Teaching primary & middle school students<br>
+• Leading English Club<br>
+• Organizing plays and activities
+</div>
+
+<div class="card">
+<strong>Freelance & Online Service Provider (2016 – 2022)</strong><br>
+Remote / Online Platforms
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+<section class="hidden">
+<h2>Education</h2>
+
+<div class="card">
+Diploma as a Computerized Management Technician<br>
+Ciel Professional Training Institute (2012)
+</div>
+
+<div class="card">
+Completed Secondary Coursework – Baccalaureate Level (Literary Stream)<br>
+Ibn al khatib – Tangier (2010)
+</div>
+
+<div class="card">
+International Transport Training<br>
+Jmna Transport (2013)
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section class="hidden">
+<h2>Skills</h2>
+
+<div class="card skills">
+<span>Classroom Management</span>
+<span>Educational Technology (Kahoot, PowerPoint)</span>
+<span>Multimedia & Interactive Methods</span>
+<span>Filming & Editing</span>
+<span>Social Media Management</span>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="hidden">
+<h2>Contact</h2>
+
+<div class="card">
+<p>📞 0696246579</p>
+<p>📧 anasalhaddadd@gmail.com</p>
+<p>📍 Complex Hasani 3, Gzenaya – Tangier</p>
+</div>
+
 </section>
 
 <script>
 /* TYPING EFFECT */
-const text = ["English Teacher","Creative Educator","Digital Creator"];
+const text = ["English Teacher","Creative Educator","Classroom Innovator"];
 let i=0,j=0,current="",isDeleting=false;
 
 function type(){
@@ -200,38 +259,6 @@ entry.target.classList.add('show');
 });
 });
 document.querySelectorAll('.hidden').forEach(el=>observer.observe(el));
-
-/* SIMPLE PARTICLES */
-const canvas=document.createElement('canvas');
-document.getElementById('particles').appendChild(canvas);
-const ctx=canvas.getContext('2d');
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-for(let i=0;i<60;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*1
-});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="white";
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
-p.y+=p.d;
-if(p.y>canvas.height){p.y=0;}
-});
-requestAnimationFrame(draw);
-}
-draw();
 </script>
 
 </body>
