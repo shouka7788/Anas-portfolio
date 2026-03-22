@@ -14,18 +14,36 @@ font-family:'Poppins',sans-serif;
 background:#0f172a;
 color:white;
 overflow-x:hidden;
-perspective:1000px;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px;
+text-align:center;
+transition:0.3s;
+z-index:1000;
+}
+nav.scrolled{
+background:rgba(15,23,42,0.9);
+backdrop-filter:blur(10px);
+}
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-size:14px;
 }
 
 /* HEADER */
 header{
 min-height:100vh;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
-text-align:center;
-padding-top:80px;
+justify-content:center;
+padding:100px 20px;
 
 background:
 linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)),
@@ -36,57 +54,57 @@ background-position:center;
 background-repeat:no-repeat;
 }
 
-/* GLOW */
-.glow{
-position:absolute;
-width:400px;
-height:400px;
-background:#38bdf8;
-filter:blur(150px);
-opacity:0.2;
-border-radius:50%;
-top:20%;
-left:30%;
-z-index:-1;
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1000px;
+width:100%;
+gap:40px;
+transition:0.2s;
 }
 
-/* PROFILE */
+.text{
+flex:1;
+}
+
+.image{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
 .profile-img{
-width:150px;
-height:150px;
+width:180px;
+height:180px;
 border-radius:50%;
 object-fit:cover;
 border:4px solid #38bdf8;
-margin-bottom:20px;
 }
 
 /* TEXT */
 h1{
 font-size:48px;
-font-weight:700;
 background:linear-gradient(90deg,#38bdf8,#818cf8);
 -webkit-background-clip:text;
 color:transparent;
 }
 
 #typing{
-font-size:20px;
 margin-top:10px;
 color:#cbd5f5;
 }
 
 /* BUTTON */
 .btn{
-margin-top:25px;
-padding:12px 28px;
+margin-top:20px;
+padding:12px 25px;
 border:none;
-border-radius:30px;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
-color:black;
+border-radius:25px;
+background:#38bdf8;
 cursor:pointer;
-transition:0.3s;
 }
-.btn:hover{transform:scale(1.1);}
 
 /* SECTIONS */
 section{
@@ -100,28 +118,36 @@ color:#38bdf8;
 margin-bottom:20px;
 }
 
-/* 3D CARD */
+/* TIMELINE */
+.timeline{
+border-left:2px solid #38bdf8;
+padding-left:20px;
+}
+.timeline-item{
+margin-bottom:30px;
+position:relative;
+}
+.timeline-item::before{
+content:'';
+position:absolute;
+left:-11px;
+top:5px;
+width:15px;
+height:15px;
+background:#38bdf8;
+border-radius:50%;
+}
+
+/* CARDS */
 .card{
 background:#1e293b;
 padding:20px;
-margin:20px 0;
 border-radius:15px;
-transform-style:preserve-3d;
-transition:0.4s;
+margin:15px 0;
+transition:0.3s;
 }
 .card:hover{
-transform:rotateY(10deg) rotateX(5deg) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
-}
-
-/* SKILLS */
-.skills span{
-display:inline-block;
-background:#334155;
-padding:8px 15px;
-margin:5px;
-border-radius:20px;
-font-size:13px;
+transform:translateY(-5px);
 }
 
 /* ANIMATION */
@@ -134,131 +160,127 @@ transition:1s;
 opacity:1;
 transform:translateY(0);
 }
+
+/* MOBILE */
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+}
 </style>
 </head>
 
 <body>
 
-<div class="glow"></div>
+<nav id="navbar">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
 
 <header>
-<img src="profile.jpg" class="profile-img">
+<div class="hero" id="hero">
+
+<div class="text">
 <h1>Anas Elhaddad</h1>
 <p id="typing"></p>
 <button class="btn">Contact Me</button>
+</div>
+
+<div class="image">
+<img src="profile.jpg" class="profile-img">
+</div>
+
+</div>
 </header>
 
 <!-- ABOUT -->
-<section class="hidden">
+<section id="about" class="hidden">
 <h2>About Me</h2>
 <div class="card">
-I am a passionate English Teacher with classroom experience in primary and middle school education. I specialize in designing engaging lessons, incorporating technology, and fostering a fun and supportive learning environment. I enjoy helping students grow in confidence and language fluency.
+I am a passionate English Teacher with classroom experience in primary and middle school education. I specialize in designing engaging lessons, incorporating technology, and fostering a supportive learning environment.
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="hidden">
+<section id="experience" class="hidden">
 <h2>Experience</h2>
 
+<div class="timeline">
+
+<div class="timeline-item">
 <div class="card">
 <strong>English Teacher (2023 – Present)</strong><br>
-Anahda Annex I – Tangier, Morocco
+Anahda Annex I – Tangier
+</div>
 </div>
 
+<div class="timeline-item">
 <div class="card">
 <strong>English Teacher (2023 – 2026)</strong><br>
-Anahda Private School – Tangier, Morocco
-<br><br>
-• Teaching primary & middle school students<br>
-• Leading English Club<br>
-• Organizing plays and activities
+Anahda Private School<br>
+• Primary & middle school teaching<br>
+• English Club<br>
+• School activities
+</div>
 </div>
 
+<div class="timeline-item">
 <div class="card">
-<strong>Freelance & Online Service Provider (2016 – 2022)</strong><br>
-Remote / Online Platforms
+<strong>Freelance (2016 – 2022)</strong><br>
+Online services
+</div>
 </div>
 
-</section>
-
-<!-- EDUCATION -->
-<section class="hidden">
-<h2>Education</h2>
-
-<div class="card">
-Diploma as a Computerized Management Technician<br>
-Ciel Professional Training Institute (2012)
 </div>
-
-<div class="card">
-Completed Secondary Coursework – Baccalaureate Level (Literary Stream)<br>
-Ibn al khatib – Tangier (2010)
-</div>
-
-<div class="card">
-International Transport Training<br>
-Jmna Transport (2013)
-</div>
-
-</section>
-
-<!-- SKILLS -->
-<section class="hidden">
-<h2>Skills</h2>
-
-<div class="card skills">
-<span>Classroom Management</span>
-<span>Educational Technology (Kahoot, PowerPoint)</span>
-<span>Multimedia & Interactive Methods</span>
-<span>Filming & Editing</span>
-<span>Social Media Management</span>
-</div>
-
 </section>
 
 <!-- CONTACT -->
-<section class="hidden">
+<section id="contact" class="hidden">
 <h2>Contact</h2>
-
 <div class="card">
 <p>📞 0696246579</p>
 <p>📧 anasalhaddadd@gmail.com</p>
-<p>📍 Complex Hasani 3, Gzenaya – Tangier</p>
+<p>📍 Tangier, Morocco</p>
 </div>
-
 </section>
 
 <script>
-/* TYPING EFFECT */
-const text = ["English Teacher","Creative Educator","Classroom Innovator"];
-let i=0,j=0,current="",isDeleting=false;
+/* NAVBAR SCROLL */
+window.addEventListener("scroll",()=>{
+document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
+});
+
+/* TYPING */
+const text=["English Teacher","Creative Educator","Classroom Innovator"];
+let i=0,j=0,current="",del=false;
 
 function type(){
-current = text[i];
-document.getElementById("typing").textContent = current.substring(0,j);
+current=text[i];
+document.getElementById("typing").textContent=current.substring(0,j);
 
-if(!isDeleting && j++ === current.length){
-isDeleting=true;
-setTimeout(type,1000);
-return;
-}
-if(isDeleting && j-- === 0){
-isDeleting=false;
-i=(i+1)%text.length;
-}
-setTimeout(type, isDeleting?50:100);
+if(!del && j++===current.length){del=true;setTimeout(type,1000);return;}
+if(del && j--===0){del=false;i=(i+1)%text.length;}
+setTimeout(type,del?50:100);
 }
 type();
 
-/* SCROLL ANIMATION */
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
+/* SCROLL */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('show');}
 });
 });
 document.querySelectorAll('.hidden').forEach(el=>observer.observe(el));
+
+/* 3D MOUSE EFFECT */
+const hero=document.getElementById("hero");
+document.addEventListener("mousemove",(e)=>{
+let x=(window.innerWidth/2 - e.pageX)/30;
+let y=(window.innerHeight/2 - e.pageY)/30;
+hero.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
+});
 </script>
 
 </body>
